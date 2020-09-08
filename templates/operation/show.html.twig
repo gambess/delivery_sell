@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Operation{% endblock %}
+
+{% block body %}
+    <h1>Operation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ operation.id }}</td>
+            </tr>
+            <tr>
+                <th>InStock</th>
+                <td>{{ operation.inStock }}</td>
+            </tr>
+            <tr>
+                <th>Q</th>
+                <td>{{ operation.q }}</td>
+            </tr>
+            <tr>
+                <th>PriceIn</th>
+                <td>{{ operation.priceIn }}</td>
+            </tr>
+            <tr>
+                <th>PriceOut</th>
+                <td>{{ operation.priceOut }}</td>
+            </tr>
+            <tr>
+                <th>PriceInp</th>
+                <td>{{ operation.priceInp }}</td>
+            </tr>
+            <tr>
+                <th>CategoryId</th>
+                <td>{{ operation.categoryId }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ operation.status }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ operation.createdAt ? operation.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('operation_index') }}">back to list</a>
+
+    <a href="{{ path('operation_edit', {'id': operation.id}) }}">edit</a>
+
+    {{ include('operation/_delete_form.html.twig') }}
+{% endblock %}

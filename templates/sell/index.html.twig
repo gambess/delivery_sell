@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sell index{% endblock %}
+
+{% block body %}
+    <h1>Sell index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>RefId</th>
+                <th>DeliveredBy</th>
+                <th>Invoice</th>
+                <th>PaymentType</th>
+                <th>Total</th>
+                <th>Cash</th>
+                <th>Iva</th>
+                <th>Discount</th>
+                <th>Status</th>
+                <th>CreatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sell in sells %}
+            <tr>
+                <td>{{ sell.id }}</td>
+                <td>{{ sell.refId }}</td>
+                <td>{{ sell.deliveredBy }}</td>
+                <td>{{ sell.invoice }}</td>
+                <td>{{ sell.paymentType }}</td>
+                <td>{{ sell.total }}</td>
+                <td>{{ sell.cash }}</td>
+                <td>{{ sell.iva }}</td>
+                <td>{{ sell.discount }}</td>
+                <td>{{ sell.status }}</td>
+                <td>{{ sell.createdAt ? sell.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('sell_show', {'id': sell.id}) }}">show</a>
+                    <a href="{{ path('sell_edit', {'id': sell.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('sell_new') }}">Create new</a>
+{% endblock %}

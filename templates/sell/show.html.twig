@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sell{% endblock %}
+
+{% block body %}
+    <h1>Sell</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sell.id }}</td>
+            </tr>
+            <tr>
+                <th>RefId</th>
+                <td>{{ sell.refId }}</td>
+            </tr>
+            <tr>
+                <th>DeliveredBy</th>
+                <td>{{ sell.deliveredBy }}</td>
+            </tr>
+            <tr>
+                <th>Invoice</th>
+                <td>{{ sell.invoice }}</td>
+            </tr>
+            <tr>
+                <th>PaymentType</th>
+                <td>{{ sell.paymentType }}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td>{{ sell.total }}</td>
+            </tr>
+            <tr>
+                <th>Cash</th>
+                <td>{{ sell.cash }}</td>
+            </tr>
+            <tr>
+                <th>Iva</th>
+                <td>{{ sell.iva }}</td>
+            </tr>
+            <tr>
+                <th>Discount</th>
+                <td>{{ sell.discount }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ sell.status }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ sell.createdAt ? sell.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('sell_index') }}">back to list</a>
+
+    <a href="{{ path('sell_edit', {'id': sell.id}) }}">edit</a>
+
+    {{ include('sell/_delete_form.html.twig') }}
+{% endblock %}
